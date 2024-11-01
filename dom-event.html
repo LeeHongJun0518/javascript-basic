@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>click event(onclick)</title>
+  <script>
+    // document.querySelector("#btn").addEventListener("click", function() {
+    //   console.log("이벤트 리스너 사용")
+    // })
+    const handleClick = function () {
+      console.log("이벤트 리스너 사용")
+    };
+
+    document.querySelector("#btn").addEventListener("click", handClick);
+    document.querySelector(".btn2").onclick("click", handClick);
+  </script>
+</head>
+<body>
+  <button id="btn">클릭</button>
+  <button class="btn2">클릭</button>
+  <button onclick="hanleClick()">클릭</button>
+</body>
+</html>

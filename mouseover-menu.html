@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마우스오버 드롭다운 메뉴</title>
+</head>
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+ html,
+ body {
+  background-color: #fff;
+  color: #000;
+ }
+ ul,
+ li {
+  list-style: none;
+ }
+ a {
+  text-decoration: none;
+  color: #000;
+ }
+ nav.gnb {
+  position: relative;
+  width: 600px;
+  height: 100px;
+  margin: 50px auto;
+  background-color: #eee;
+ }
+ nav.gnb > ul {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ }
+ nav.gnb > ul > li > a {
+  display: block;
+  width: 120px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: aqua;
+  color: #fff;
+ }
+ .submenu {
+  position: absolute;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s ease-in;
+ }
+ .submenu.active {
+  max-height: 500px;
+ }
+ .submenu li {
+  position: relative;
+ }
+ .submenu li a {
+  display: block;
+  width: 120px;
+  line-height: 40px;
+  text-align: center;
+  background-color: aquamarine;
+ }
+.submenu li a:hover {
+  font-weight: bold;
+}
+</style>
+<body>
+  <nav class="gnb">
+    <ul>
+      <li>
+        <a href="$">메뉴-1</a>
+        <ul class="submenu">
+          <li><a href="#">서브메뉴-1</a></li>
+          <li><a href="#">서브메뉴-2</a></li>
+          <li><a href="#">서브메뉴-3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="$">메뉴-2</a>
+        <ul class="submenu">
+          <li><a href="#">서브메뉴-1</a></li>
+          <li><a href="#">서브메뉴-2</a></li>
+          <li><a href="#">서브메뉴-3</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="$">메뉴-3</a>
+        <ul class="submenu">
+          <li><a href="#">서브메뉴-1</a></li>
+          <li><a href="#">서브메뉴-2</a></li>
+          <li><a href="#">서브메뉴-3</a></li>
+          <li><a href="#">서브메뉴-4</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="$">메뉴-4</a>
+        <ul class="submenu">
+          <li><a href="#">서브메뉴-1</a></li>
+          <li><a href="#">서브메뉴-2</a></li>
+          <li><a href="#">서브메뉴-3</a></li>
+          <li><a href="#">서브메뉴-4</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <script>
+    const naviItems = document.querySelectorAll(".gnb > ul > li");
+    // console.log(naviItems);
+
+    naviItems.forEach((item, index) => {
+      // console.log(item, index);
+      const submenu = item.querySelector(".submenu");
+      // console.log(submenu);
+
+      item.addEventListener("mouseover", () => {
+        // console.log("마우스오버 이벤트 발생", index)
+        if (!submenu) return;
+        submenu.classList.add("active")
+      });
+
+      item.addEventListener("mouseout", () => {
+        // console.log("마우스오버 이벤트 발생", index)
+        if (!submenu) return;
+        submenu.classList.remove("active")
+      });
+    });
+
+  </script>
+</body>
+</html>
